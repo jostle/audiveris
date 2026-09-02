@@ -386,8 +386,9 @@ public class ShapeBoard
                     button.addActionListener(setListener);
                     button.setBorderPainted(false);
 
+                    final String desc = set.getName(); // + " (" + set.getDescription() + ")";
                     final Character shortcut = ShapeShortcuts.getReverseSetMap().get(set);
-                    button.setToolTipText(set.getName() + standardized(shortcut));
+                    button.setToolTipText(standardizedTip(desc, standardized(shortcut)));
                     panel.add(button);
 
                     // Create the child set Panel
@@ -958,8 +959,17 @@ public class ShapeBoard
         return shortcut.chars() // a stream of int values
                 .mapToObj(c -> (char) c) // map int to Character
                 .map(c -> c.toString()) //  map Character to String (needed for joining)
-                .collect(Collectors.joining("-", "   (", ")")) //
+                .collect(Collectors.joining("-", "   [", "]")) //
                 .toUpperCase();
+    }
+
+    //-----------------//
+    // standardizedTip //
+    //-----------------//
+    static String standardizedTip (String desc,
+                                   String shortcut)
+    {
+        return (shortcut == null) ? desc : "<html>" + desc + "<br>" + shortcut + "</html>";
     }
 
     //~ Inner Classes ------------------------------------------------------------------------------
@@ -1717,8 +1727,9 @@ public class ShapeBoard
 
             setIcon(decoSymbol.getTinyVersion());
 
+            final String desc = decoSymbol.getDescription();
             final String shortcut = ShapeShortcuts.getReverseShapeMap().get(decoSymbol.getShape());
-            setToolTipText(decoSymbol.getTip() + standardized(shortcut));
+            setToolTipText(standardizedTip(desc, standardized(shortcut)));
 
             setBorderPainted(true);
 

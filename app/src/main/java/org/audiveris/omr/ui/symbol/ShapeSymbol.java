@@ -366,6 +366,19 @@ public class ShapeSymbol
         }
     }
 
+    //----------------//
+    // getDescription //
+    //----------------//
+    /**
+     * Report the description text to display for this symbol.
+     *
+     * @return the description
+     */
+    public String getDescription ()
+    {
+        return shape.getDescription();
+    }
+
     //--------------//
     // getDimension //
     //--------------//
@@ -552,7 +565,7 @@ public class ShapeSymbol
      */
     public String getTip ()
     {
-        return shape.getDescription();
+        return shape.getTip();
     }
 
     //-----------------//
