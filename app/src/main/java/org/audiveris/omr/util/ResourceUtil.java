@@ -33,8 +33,10 @@ public abstract class ResourceUtil
     //~ Static fields/initializers -----------------------------------------------------------------
 
     /** Name of the sub-folder dedicated to resources. */
-
     public static final String RESOURCES = "resources";
+
+    /** Specific value to indicate lack of resource, and avoid recurring searches. */
+    public static final String NO_RESOURCE = "NO_RESOURCE";
 
     //~ Instance fields ----------------------------------------------------------------------------
 

@@ -33,8 +33,6 @@ import javax.swing.JButton;
 public class ShapeButton
         extends JButton
 {
-    //~ Static fields/initializers -----------------------------------------------------------------
-
     //~ Instance fields ----------------------------------------------------------------------------
 
     /** The related shape. */
@@ -50,12 +48,8 @@ public class ShapeButton
     public ShapeButton (Shape shape)
     {
         super();
-        this.shape = shape;
 
-        if (shape != null) {
-            setText(shape.getDescription());
-            setToolTipText(shape.getTip());
-        }
+        setShape(shape);
     }
 
     //~ Methods ------------------------------------------------------------------------------------
@@ -74,8 +68,4 @@ public class ShapeButton
             setToolTipText(shape.getTip());
         }
     }
-
-    //~ Static Methods -----------------------------------------------------------------------------
-
-    //~ Inner Classes ------------------------------------------------------------------------------
 }

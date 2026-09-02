@@ -40,6 +40,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 /**
@@ -877,10 +878,15 @@ public enum Shape
     public String getTip ()
     {
         if (tip == null) {
-            tip = resources.getString(name() + ".toolTipText");
+            try {
+                tip = resources.getString(name() + ".toolTipText");
+            } catch (MissingResourceException mre) {
+                logger.debug(mre.getMessage());
+                tip = ResourceUtil.NO_RESOURCE;
+            }
         }
 
-        return tip;
+        return (tip != ResourceUtil.NO_RESOURCE) ? tip : null;
     }
 
     //---------//

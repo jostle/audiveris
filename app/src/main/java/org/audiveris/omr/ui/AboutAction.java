@@ -105,7 +105,9 @@ public class AboutAction
             aboutBox = createAboutBox();
         }
 
-        final Object[] options = { "OK", "Copy" };
+        final Object[] options = { //
+                resources.getString("optionOk.text"), //
+                resources.getString("optionCopy.text") };
 
         final int choice = JOptionPane.showOptionDialog(
                 OMR.gui.getFrame(),

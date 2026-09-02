@@ -397,7 +397,6 @@ public class EvaluationBoard
         {
             if (eval != null) {
                 final Evaluation.Failure failure = eval.failure;
-                final String tip = (failure != null) ? failure.toString() : eval.shape.getTip();
                 final MusicFamily family = sheet != null ? sheet.getStub().getMusicFamily()
                         : MusicFont.getDefaultMusicFamily();
                 final ShapeSymbol symbol = eval.shape.getDecoratedSymbol(family);
